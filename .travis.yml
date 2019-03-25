@@ -10,7 +10,7 @@ before_script:
   - (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.1" mdbook)
   - cargo install-update -a
 script:
-  - mdbook build app/book && mdbook test app/book
+  - mdbook build app && mdbook test app
 deploy:
   provider: pages
   skip-cleanup: true
