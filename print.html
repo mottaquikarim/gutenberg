@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Gutenberg</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Guten Tag!</a></li><li><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Usage</a></li><li><a href="chapter_3.html"><strong aria-hidden="true">3.</strong> Deployment</a></li><li><a href="chapter_4.html"><strong aria-hidden="true">4.</strong> About</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Gutenberg</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <!---
+{"next": "chapter_2.md","title": "Guten Tag!","first":true}
+-->
+<p><img src="https://github.com/mottaquikarim/gutenberg/blob/master/assets/gutenberg.png?raw=true" alt="icon" /></p>
+<a class="header" href="#gutenberg" id="gutenberg"><h1>Gutenberg</h1></a>
+<p><a href="https://travis-ci.org/mottaquikarim/gutenberg"><img src="https://travis-ci.org/mottaquikarim/gutenberg.svg?branch=master" alt="Build Status" /></a></p>
+<p>A wrapper around the fantastic <strong><a href="https://github.com/rust-lang-nursery/mdBook">mdbook</a></strong> project that generates markdown based documentation content.</p>
+<p>This repo is meant to be used as a harness to build and deploy gitbook like documentation for teaching. It uses <strong><a href="https://travis-ci.org/">travis</a></strong> to build and serve the content artifact and node js to generate summary content for an easy, automated book table of contents building process.</p>
+<p>Makefile is used to handle task runner functions.</p>
+<!---
+{"next": "chapter_3.md","title": "Usage"}
+-->
+<a class="header" href="#using-gutenberg" id="using-gutenberg"><h1>Using Gutenberg</h1></a>
+<p>The easiest way to use Gutenberg is to fork this repo.</p>
+<p>Once you have forked this repo, update the <code>book.toml</code> file found in <code>app/src</code>.</p>
+<pre><code class="language-toml">[book]
+authors = [&quot;YOUR_NAME&quot;]
+multilingual = false
+src = &quot;src&quot;
+title = &quot;YOUR_BOOK_TITLE&quot;
+</code></pre>
+<p>This will set the proper author and book title values. Please note that currently at least, <code>src</code> and <code>multilingual</code> are not yet parameterized.</p>
+<p>Then, using makefile run:</p>
+<pre><code class="language-bash">$ make local
+</code></pre>
+<p>You only need to do this once and it will install rust / cargo / mdbook for you. Note this process usually takes a good 20-30 minutes to build!</p>
+<p>To edit / add / remove content run:</p>
+<pre><code class="language-bash">$ make local_watch
+</code></pre>
+<p>from the root project directory. This runs a nodejs script that will watch the <code>src</code> folder in <code>app/src</code> for file changes and automatically regenerate the <code>SUMMARY.md</code> on change.</p>
+<p>Each <code>.md</code> file that is added (currently only a flat file structure is supported) will regenerate <code>SUMMARY.md</code>. We use &quot;metadata&quot; on top of each content file in the following format:</p>
+<pre><code class="language-json">{&quot;next&quot;: &quot;chapter_2.md&quot;,&quot;title&quot;: &quot;Gutenberg!&quot;,&quot;first&quot;:true}
+</code></pre>
+<p>to point to the next file and include special fields such as <code>title</code> and <code>first</code>. This JSON meta data header is wrapped in standard HTML comment tags (look at <code>app/src/chapter_1.md</code> for example).</p>
+<p>This usage pattern - inspired by linkedlist insertions - is neat in particular because it ensures that inserting pages is seamless and quick (just swap two pointers vs N - 1 pointers).</p>
+<p>The built HTML will be available locally in: <code>app/book/index.html</code></p>
+<!---
+{"next": "chapter_4.md","title": "Deployment"}
+-->
+<a class="header" href="#deployment" id="deployment"><h1>Deployment</h1></a>
+<p>To deploy the built artifact, connect the forked repo with <a href="https://travis-ci.org">Travis</a>. The travis file included in this repo should handle the rest - it builds the rust dependencies and then pushes to github pages, so once deployed the URL to access the book is:</p>
+<pre><code class="language-text">https://[your_github_handle].github.io/[name_of_forked_repo]
+</code></pre>
+<p>Please note that NodeJS is only used as a local dependency and is not required to build the artifact. </p>
+<!---
+{"next": "","title": "About"}
+-->
+<a class="header" href="#about" id="about"><h1>About</h1></a>
+<p>Built by your boy <strong><a href="https://taqkarim.dev">Taq Karim</a></strong> with <strong><a href="https://github.com/rust-lang-nursery/mdBook">this</a></strong>, <strong><a href="https://travis-ci.org/">this</a></strong>, ☕☕☕ and ❤️</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
