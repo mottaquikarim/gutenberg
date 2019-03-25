@@ -6,11 +6,9 @@ cache:
 rust:
   - stable
 before_script:
-  - (test -x $HOME/.cargo/bin/cargo-install-update || cargo install cargo-update)
-  - (test -x $HOME/.cargo/bin/mdbook || cargo install --vers "^0.1" mdbook)
-  - cargo install-update -a
+  - make travis_install
 script:
-  - mdbook build app && mdbook test app
+  - make travis_build
 deploy:
   provider: pages
   skip-cleanup: true
