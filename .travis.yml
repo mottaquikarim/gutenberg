@@ -9,9 +9,9 @@ env:
   global:
     - HOME=$HOME
 before_script:
-  - make travis_install
+  - make install
 script:
-  - make travis_build
+  - make build
 deploy:
   provider: pages
   skip-cleanup: true
