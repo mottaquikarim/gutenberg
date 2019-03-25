@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mottaquikarim/gutenberg.svg?branch=master)](https://travis-ci.org/mottaquikarim/gutenberg)
+
 ![icon](https://github.com/mottaquikarim/gutenberg/blob/master/assets/gutenberg.png?raw=true)
 # Gutenberg
 
