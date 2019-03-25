@@ -5,6 +5,9 @@ cache:
   - cargo
 rust:
   - stable
+env:
+  global:
+    - HOME=$HOME
 before_script:
   - make travis_install
 script:
